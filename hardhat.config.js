@@ -28,7 +28,15 @@ module.exports = {
   //     url: process.env.STAGING_ALCHEMY_KEY,
   //     accounts: [process.env.PRIVATE_KEY],
   //   },
-  //   mainnet: {
+  //   mumbai: {
+  //     url: process.env.STAGING_ALCHEMY_KEY,
+  //     accounts: [process.env.PRIVATE_KEY],
+  //   },
+  //   polygon_mainnet: {
+  //     url: process.env.STAGING_ALCHEMY_KEY,
+  //     accounts: [process.env.PRIVATE_KEY],
+  //   },
+  //   ethereum_mainnet: {
   //     chainId: 1,
   //     url: process.env.PROD_ALCHEMY_KEY,
   //     accounts: [process.env.PRIVATE_KEY],
