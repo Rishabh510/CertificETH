@@ -14,7 +14,9 @@ contract MyToken is ERC721, ERC721URIStorage, AccessControl {
 
     mapping(string => bool) existingURIs;
 
-    constructor() ERC721("MyToken", "MTK") {
+    event CustomNFTMinted(address sender, uint256 tokenId);
+
+    constructor() ERC721("CertificETH", "CERTI") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
     }
@@ -30,7 +32,6 @@ contract MyToken is ERC721, ERC721URIStorage, AccessControl {
     function safeMint(address to, string memory uri)
         public
         onlyRole(MINTER_ROLE)
-        returns (uint256)
     {
         require(!isContentOwned(uri), "This NFT had already been minted");
         uint256 tokenId = _tokenIdCounter.current();
@@ -38,7 +39,7 @@ contract MyToken is ERC721, ERC721URIStorage, AccessControl {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
         existingURIs[uri] = true;
-        return tokenId;
+        emit CustomNFTMinted(msg.sender, tokenId);
     }
 
     // The following functions are overrides required by Solidity.
