@@ -9,7 +9,7 @@ npx hardhat node
 
 # terminal 2
 npx hardhat compile
-npx hardhat run scripts/sample-script.js --network localhost
+npx hardhat run scripts/deply-contract.js --network mumbai
 
 # terminal 3
 npm run dev
