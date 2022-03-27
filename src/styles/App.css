@@ -40,3 +40,21 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.footer-container{
+  position: absolute;
+  bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.sub-text{
+  position: relative;
+  margin-top: 100px;
+}
+
+
+.temp{
+  color: black;
+}

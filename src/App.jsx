@@ -3,6 +3,9 @@ import { NFTStorage, File } from "nft.storage";
 import "./styles/App.css";
 import { ethers } from "ethers";
 import myToken from "./artifacts/contracts/MyToken.sol/MyToken.json";
+import Button from "@mui/material/Button";
+import { AppBar, Box, TextField } from "@mui/material";
+import { padding } from "@mui/system";
 
 // Constants
 const NFT_STORAGE_API_KEY = import.meta.env.VITE_NFT_STORAGE_API_KEY;
@@ -17,6 +20,8 @@ const CONTRACT_ADDRESS = "0xAB4919E28E7e6bA06D15A3D90c32D798887B469A";
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [myName, setMyName] = useState("");
+  const [OrgName, setOrgName] = useState("");
+  const [AddressName, setAddressName] = useState("");
 
   // Render Methods
   const checkIfWalletIsConnected = async () => {
@@ -163,10 +168,35 @@ const App = () => {
 
   return (
     <div className="App">
+      <AppBar
+        style={{
+          borderRadius: "0px",
+          backgroundColor: "#39A2DB",
+          height: "auto",
+          marginBottom: "20px",
+          padding: "1px",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "40px",
+            fontStyle: "italic",
+            fontFamily: "cursive",
+            margin: "15px",
+          }}
+        >
+          Certific ΞTH
+        </p>
+      </AppBar>
       <div className="container">
         <div className="header-container">
-          <p className="header gradient-text">CertificETH</p>
-          <p className="sub-text">
+          <p className="sub-text" 
+            style={{
+            fontSize: "25px",
+            fontStyle: "italic",
+            fontFamily: "cursive",
+          }}
+>
             Host events/conferences and distribute participation certificates as
             NFTs
           </p>
@@ -174,16 +204,61 @@ const App = () => {
             renderNotConnectedContainer()
           ) : (
             <>
-              <input
-                value={myName}
-                onChange={(e) => setMyName(e.target.value)}
-              />
-              <button
-                onClick={askContractToMintNft}
-                className="cta-button connect-wallet-button"
+              <Box
+                sx={{
+                  border: 1,
+                  borderColor: "grey.700",
+                  borderWidth: "2px",
+                  backgroundColor: "#F9F9F9",
+                  margin: "50px auto",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "55%",
+                  justifyContent: "center",
+                  padding: "30px",
+                  alignContent: "center",
+                  borderBlockColor: "black",
+                  borderRadius: "20px",
+                }}
               >
-                Mint NFT
-              </button>
+                <TextField
+                  id="outlined-basic"
+                  label="Enter Organisation Name"
+                  fullWidth
+                  variant="outlined"
+                  value={OrgName}
+                  onChange={(e) => setOrgName(e.target.value)}
+                  style={{ margin: "20px" }}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Enter Participant Name"
+                  variant="outlined"
+                  fullWidth
+                  value={myName}
+                  onChange={(e) => setMyName(e.target.value)}
+                  style={{ margin: "20px" }}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Enter Recipient Address"
+                  fullWidth
+                  variant="outlined"
+                  value={AddressName}
+                  onChange={(e) => setAddressName(e.target.value)}
+                  style={{ margin: "20px" }}
+                />
+                <Button
+                  variant="contained"
+                  onClick={askContractToMintNft}
+                  className="cta-button connect-wallet-button"
+                  size="large"
+                  style={{ margin: "20px", width: "35%" }}
+                >
+                  Mint NFT
+                </Button>
+              </Box>
             </>
           )}
         </div>
