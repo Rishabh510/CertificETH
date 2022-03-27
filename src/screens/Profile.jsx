@@ -5,14 +5,14 @@ import Projects from "../components/Sections/Projects";
 import Footer from "../components/Sections/Footer";
 import { MoralisProvider } from "react-moralis";
 
+const MORALIS_SERVER_URL = import.meta.env.VITE_MORALIS_SERVER_URL;
+const MORALIS_APP_ID = import.meta.env.VITE_MORALIS_APP_ID;
+
 export default function Profile() {
   return (
     <>
       <TopNavbar />
-      <MoralisProvider
-        serverUrl="https://quw0jhrzdqbp.usemoralis.com:2053/server"
-        appId="8Rkh6PMLB96y8lb5RtqT06FHbLU57Oxsynh6nikV"
-      >
+      <MoralisProvider serverUrl={MORALIS_SERVER_URL} appId={MORALIS_APP_ID}>
         <Projects />
       </MoralisProvider>
       <Footer />
