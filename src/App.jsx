@@ -137,7 +137,7 @@ const App = () => {
         uri = uri.substring(7);
 
         console.log("Going to pop wallet now to pay gas...");
-        let nftTxn = await connectedContract.safeMint(currentAccount, uri);
+        let nftTxn = await connectedContract.safeMint(AddressName, uri);
 
         console.log("Minting...please wait.");
         await nftTxn.wait();
@@ -185,18 +185,19 @@ const App = () => {
             margin: "15px",
           }}
         >
-          Certific ΞTH
+          CertificΞTH
         </p>
       </AppBar>
       <div className="container">
         <div className="header-container">
-          <p className="sub-text" 
+          <p
+            className="sub-text"
             style={{
-            fontSize: "25px",
-            fontStyle: "italic",
-            fontFamily: "cursive",
-          }}
->
+              fontSize: "25px",
+              fontStyle: "italic",
+              fontFamily: "cursive",
+            }}
+          >
             Host events/conferences and distribute participation certificates as
             NFTs
           </p>

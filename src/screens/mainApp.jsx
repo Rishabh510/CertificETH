@@ -7,7 +7,6 @@ import { AppBar, Box, TextField } from "@mui/material";
 
 export default function mainApp() {
   return (
-    
     <div className="App">
       <AppBar
         style={{
@@ -26,18 +25,19 @@ export default function mainApp() {
             margin: "15px",
           }}
         >
-          Certific ΞTH
+          CertificΞTH
         </p>
       </AppBar>
       <div className="container">
         <div className="header-container">
-          <p className="sub-text" 
+          <p
+            className="sub-text"
             style={{
-            fontSize: "25px",
-            fontStyle: "italic",
-            fontFamily: "cursive",
-          }}
->
+              fontSize: "25px",
+              fontStyle: "italic",
+              fontFamily: "cursive",
+            }}
+          >
             Host events/conferences and distribute participation certificates as
             NFTs
           </p>
@@ -127,6 +127,5 @@ export default function mainApp() {
         </div>
       </div>
     </div>
-    
   );
 }

@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
-import App from "./App";
-import Landing from "./screens/Landing";
+import App2 from "./App2";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Landing />
+    <App2 />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
 // Components
 import Sidebar from "../Nav/Sidebar";
-
 
 import Backdrop from "../Elements/Backdrop";
 // Assets
@@ -31,25 +31,27 @@ export default function TopNavbar() {
         style={y > 100 ? { height: "60px" } : { height: "80px" }}
       >
         <NavInner className="container flexSpaceCenter">
-          <Link className="pointer flexNullCenter" to="home" smooth={true}>
-            <img src={LogoIcon} style={{ height: 70, width: 55 }}/>
+          {/* <a href="/"> */}
+          <Link className="pointer flexNullCenter" to="/" smooth={true}>
+            <img src={LogoIcon} style={{ height: 70, width: 55 }} />
             <h1 style={{ marginLeft: "15px" }} className="font20 extraBold">
-            Certific ΞTH
+              CertificΞTH
             </h1>
           </Link>
+          {/* </a> */}
           <BurderWrapper
             className="pointer"
             onClick={() => toggleSidebar(!sidebarOpen)}
           >
             <BurgerIcon />
           </BurderWrapper>
-            
+
           <UlWrapperRight className="flexNullCenter">
-          <li className="semiBold font15 pointer">
+            <li className="semiBold font15 pointer">
               <Link
                 activeClass="active"
                 style={{ padding: "10px 15px", marginRight: "60px" }}
-                to="home"
+                to="/"
                 spy={true}
                 smooth={true}
                 offset={-80}
@@ -57,7 +59,7 @@ export default function TopNavbar() {
                 Home
               </Link>
             </li>
-            
+
             <li className="semiBold font15 pointer flexCenter">
               <a
                 href="/events"

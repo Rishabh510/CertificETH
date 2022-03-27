@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import Landing from "./screens/Landing.jsx";
 import Events from "./screens/Events.jsx";
 import Profile from "./screens/Profile.jsx";
+import App from "./App";
 
 export default function App2() {
   return (
@@ -19,6 +20,7 @@ export default function App2() {
       </Helmet>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/mint" element={<App />} />
         <Route path="/events" element={<Events />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>

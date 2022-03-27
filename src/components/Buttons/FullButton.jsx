@@ -1,11 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function FullButton({ title, action, border }) {
+  const navigate = useNavigate();
   return (
     <Wrapper
       className="animate pointer radius8"
-      onClick={action ? () => action() : () => window.location.href="/events"}
+      onClick={action ? () => action() : () => navigate("/events")}
       border={border}
     >
       {title}
@@ -26,4 +28,3 @@ const Wrapper = styled.button`
     color: ${(props) => (props.border ? "#7620ff" : "#fff")};
   }
 `;
-
