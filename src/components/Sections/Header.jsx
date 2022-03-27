@@ -13,12 +13,15 @@ export default function Header() {
     <Wrapper id="home" className="container flexSpaceCenter">
       <LeftSide className="flexCenter">
         <div>
-          <h1 className="extraBold font60">We authenticate certificates using NFTs. </h1>
+          <h1 className="extraBold font60">
+            We issue & authenticate certificates using NFTs.{" "}
+          </h1>
           <HeaderP className="font13 semiBold">
-            We enable organisations to use our platform to issue 
-            custom made certificates to their subordinates without worrying about the certificate's credibility. 
-            We ensure each and every certificate is authentic by validating the indentities of both the parties involved, 
-            as well as the contents of the certificate.
+            We enable organisations to use our platform to issue custom made
+            certificates to their subordinates without worrying about the
+            certificate's credibility. We ensure each and every certificate is
+            authentic by validating the indentities of both the parties
+            involved, as well as the contents of the certificate.
           </HeaderP>
           <BtnWrapper>
             <FullButton title="Get Started" />
@@ -27,7 +30,12 @@ export default function Header() {
       </LeftSide>
       <RightSide>
         <ImageWrapper>
-          <Img className="radius8" src={HeaderImage} alt="office" style={{zIndex: 9}} />
+          <Img
+            className="radius8"
+            src={HeaderImage}
+            alt="office"
+            style={{ zIndex: 9 }}
+          />
           <DotsWrapper>
             <Dots />
           </DotsWrapper>
@@ -37,7 +45,6 @@ export default function Header() {
     </Wrapper>
   );
 }
-
 
 const Wrapper = styled.section`
   padding-top: 80px;
@@ -143,5 +150,3 @@ const DotsWrapper = styled.div`
     display: none;
   }
 `;
-
-
