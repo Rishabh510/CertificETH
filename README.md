@@ -1,17 +1,22 @@
 # Usage
 
 ```
+# Clone repo
 git clone <this-repo>
+
+# Install packages
 npm install
 
-# terminal 1
-npx hardhat node
+# Make .env file and add keys
+cp .env.example .env
 
-# terminal 2
-npx hardhat compile
+# Deploy contract
 npx hardhat run scripts/deply-contract.js --network mumbai
 
-# terminal 3
+# Verify contract
+npx hardhat verify COONTRACT_ADDRESS --network mumbai
+
+# Launch GUI
 npm run dev
 ```
 
