@@ -7,9 +7,7 @@ import myToken from "./artifacts/contracts/MyToken.sol/MyToken.json";
 // Constants
 const NFT_STORAGE_API_KEY = import.meta.env.VITE_NFT_STORAGE_API_KEY;
 const TWITTER_HANDLE1 = "RaizadaRishabh";
-const TWITTER_HANDLE2 = "PriyankGupta03";
 const TWITTER_LINK1 = `https://twitter.com/${TWITTER_HANDLE1}`;
-const TWITTER_LINK2 = `https://twitter.com/${TWITTER_HANDLE2}`;
 const OPENSEA_LINK = "";
 const TOTAL_MINT_COUNT = 50;
 const CONTRACT_ADDRESS = "0xAB4919E28E7e6bA06D15A3D90c32D798887B469A";
@@ -84,7 +82,7 @@ const App = () => {
         connectedContract.on("CustomNFTMinted", (from, tokenId) => {
           console.log(from, tokenId.toNumber());
           console.log(
-            `NFT Minted: https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`
+            `NFT Minted: https://testnets.opensea.io/assets/mumbai/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`
           );
         });
 
@@ -197,15 +195,6 @@ const App = () => {
               rel="noreferrer"
             >
               {TWITTER_HANDLE1}
-            </a>
-            &nbsp; & &nbsp;
-            <a
-              className="footer-text"
-              href={TWITTER_LINK2}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {TWITTER_HANDLE2}
             </a>
           </p>
         </div>
