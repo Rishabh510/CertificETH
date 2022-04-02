@@ -4,6 +4,7 @@ import { useMoralisWeb3Api, useMoralis } from "react-moralis";
 // Components
 import ProjectBox from "../Elements/ProjectBox";
 import FullButton from "../Buttons/FullButton";
+import "./tempsi.css";
 
 export default function Projects() {
   const { isInitialized } = useMoralis();
@@ -13,19 +14,22 @@ export default function Projects() {
   const NFTGrid = () => {
     return (
       NFTs && (
-        <div>
+        <div style={styling.topsection} className="yoyo">
           {NFTs.map((nft) => {
             let metadata = JSON.parse(nft.metadata);
             const gateway = "https://ipfs.io/ipfs/";
             return (
+              
               metadata && (
-                <ProjectBox
+                <div style={styling.section} >
+                <ProjectBox  
                   key={nft.token_id}
-                  img={gateway + metadata["image"].substring(7)}
+                  img ={gateway + metadata["image"].substring(7)}
                   title={metadata["name"]}
                   text={metadata["description"]}
                   action={() => alert("clicked")}
                 />
+                </div>
               )
             );
           })}
@@ -56,10 +60,7 @@ export default function Projects() {
         <div className="container">
           <HeaderInfo>
             <h1 className="font40 extraBold">Your Certificates</h1>
-            {/* <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut
-            </p> */}
+            
           </HeaderInfo>
           <NFTGrid />
         </div>
@@ -70,6 +71,7 @@ export default function Projects() {
 
 const Wrapper = styled.section`
   width: 100%;
+
 `;
 const HeaderInfo = styled.div`
   @media (max-width: 860px) {
@@ -142,10 +144,42 @@ const ImgWrapper = styled.div`
   width: 100%;
   padding: 0 15%;
   img {
-    width: 100%;
+    width: 75%;
     height: auto;
   }
   @media (max-width: 400px) {
     padding: 0;
   }
 `;
+
+const styling = {
+
+  topsection: {
+
+    width: "100%",
+    
+    display: "grid",
+
+    gap: "0.25em",
+    marginbottom: "1em",
+
+
+
+
+  },
+
+
+  section: {
+
+    width: "80%",
+    fontSize: "2rem",
+    color: "#292b2c",
+    backgroundColor: "#fff",
+    textAlign: "center",
+    margin: "50px auto",
+    fontsize: "3rem",
+     
+  },
+
+};
+

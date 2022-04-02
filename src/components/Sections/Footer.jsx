@@ -4,6 +4,7 @@ import { Link } from "react-scroll";
 // Assets
 import LogoImg from "../../assets/svg/Logo";
 import LogoIcon from "../../assets/svg/icon.svg";
+import "./tempsi.css";
 
 export default function Contact() {
   const getCurrentYear = () => {
@@ -11,7 +12,7 @@ export default function Contact() {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className="Frooti">
       <div className="darkBg">
         <div className="container">
           <InnerWrapper

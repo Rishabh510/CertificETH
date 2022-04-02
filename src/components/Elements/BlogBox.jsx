@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import "../Sections/tempsi.css";
 
 export default function BlogBox({ tag, title, text, action, author }) {
   return (
     <WrapperBtn className="animate pointer" onClick={action ? () => action() : null}>
-      <Wrapper className="whiteBg radius8 shadow">
+      <Wrapper className="whiteBg radius8 shadow BlogChild">
         <h3 className="font20 extraBold">{title}</h3>
         <p className="font13" style={{ padding: "30px 0" }}>
           {text}
@@ -23,6 +24,7 @@ const Wrapper = styled.div`
   text-align: left;
   padding: 20px 30px;
   margin-top: 30px;
+  
 `;
 const WrapperBtn = styled.button`
   border: 0px;

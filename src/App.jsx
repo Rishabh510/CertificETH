@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import { AppBar, Box, TextField } from "@mui/material";
 import { padding } from "@mui/system";
 import { useLocation } from "react-router-dom";
+import Footer from "./components/Sections/Footer";
+import TopNavbar from "./components/Nav/TopNavbar";
 
 // Constants
 const NFT_STORAGE_API_KEY = import.meta.env.VITE_NFT_STORAGE_API_KEY;
@@ -179,26 +181,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <AppBar
-        style={{
-          borderRadius: "0px",
-          backgroundColor: "#39A2DB",
-          height: "auto",
-          marginBottom: "20px",
-          padding: "1px",
-        }}
-      >
-        <p
-          style={{
-            fontSize: "40px",
-            fontStyle: "italic",
-            fontFamily: "cursive",
-            margin: "15px",
-          }}
-        >
-          CertificΞTH
-        </p>
-      </AppBar>
+<TopNavbar />
       <div className="container">
         <div className="header-container">
           <p
@@ -206,7 +189,7 @@ const App = () => {
             style={{
               fontSize: "25px",
               fontStyle: "italic",
-              fontFamily: "cursive",
+              fontFamily: 'Khula',
             }}
           >
             Host events/conferences and distribute participation certificates as
@@ -230,7 +213,7 @@ const App = () => {
                   justifyContent: "center",
                   padding: "30px",
                   alignContent: "center",
-                  borderBlockColor: "black",
+                  borderBlockColor: "grey",
                   borderRadius: "20px",
                 }}
               >
@@ -266,7 +249,8 @@ const App = () => {
                   onClick={askContractToMintNft}
                   className="cta-button connect-wallet-button"
                   size="large"
-                  style={{ margin: "20px", width: "35%" }}
+                  style={{ margin: "20px", width: "35%", backgroundColor: "dodgerblue", }}
+
                 >
                   Mint NFT
                 </Button>
@@ -297,6 +281,7 @@ const App = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

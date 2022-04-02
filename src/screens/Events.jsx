@@ -9,7 +9,6 @@ export default function Events() {
     <>
       <TopNavbar />
       <Blog />
-      <Footer />
     </>
   );
 }
