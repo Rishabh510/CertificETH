@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NFTStorage, File } from "nft.storage";
 import "./styles/App.css";
+// import "./styles/index.css";
 import { ethers } from "ethers";
 import myToken from "./artifacts/contracts/MyToken.sol/MyToken.json";
 import Button from "@mui/material/Button";
@@ -8,7 +9,8 @@ import { AppBar, Box, TextField } from "@mui/material";
 import { padding } from "@mui/system";
 import { useLocation } from "react-router-dom";
 import Footer from "./components/Sections/Footer";
-import TopNavbar from "./components/Nav/TopNavbar";
+import  TopNavbar2 from "./components/Nav/TopNavbar2";
+import useStore from "./store";
 
 // Constants
 const NFT_STORAGE_API_KEY = import.meta.env.VITE_NFT_STORAGE_API_KEY;
@@ -16,13 +18,11 @@ const TWITTER_HANDLE1 = "RaizadaRishabh";
 const TWITTER_HANDLE2 = "PriyankGupta03";
 const TWITTER_LINK1 = `https://twitter.com/${TWITTER_HANDLE1}`;
 const TWITTER_LINK2 = `https://twitter.com/${TWITTER_HANDLE2}`;
-const OPENSEA_LINK = "";
-const TOTAL_MINT_COUNT = 50;
 const CONTRACT_ADDRESS = "0xAB4919E28E7e6bA06D15A3D90c32D798887B469A";
 
 const App = () => {
   const { state } = useLocation();
-  const [currentAccount, setCurrentAccount] = useState("");
+  const [currentAccount, setCurrentAccount] = useState(useStore((state) => state.account));
   const [myName, setMyName] = useState("");
   const [OrgName, setOrgName] = useState(state.text);
   const [eventName, setEventName] = useState(state.title);
@@ -94,7 +94,7 @@ const App = () => {
         connectedContract.on("CustomNFTMinted", (from, tokenId) => {
           console.log(from, tokenId.toNumber());
           console.log(
-            `NFT Minted: https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`
+            `NFT Minted: https://testnets.opensea.io/assets/mumbai/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`
           );
         });
 
@@ -177,11 +177,11 @@ const App = () => {
 
   useEffect(() => {
     checkIfWalletIsConnected();
-  }, []);
+  }, [useStore((state)=>state.account)]);
 
   return (
-    <div className="App">
-<TopNavbar />
+    <>    <div className="App">
+    <TopNavbar2 />
       <div className="container">
         <div className="header-container">
           <p
@@ -196,7 +196,7 @@ const App = () => {
             NFTs
           </p>
           {currentAccount === "" ? (
-            renderNotConnectedContainer()
+            <h1>Please connect your MetaMask account</h1>
           ) : (
             <>
               <Box
@@ -281,8 +281,11 @@ const App = () => {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
+
+    <Footer />
+    </>
+
   );
 };
 

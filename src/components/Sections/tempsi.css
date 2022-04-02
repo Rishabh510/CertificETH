@@ -6,6 +6,26 @@
   margin-top: 35px;
   
 }
+.yoyo {
+
+
+  display: grid;
+  grid-template-columns: 50% 50% ;
+  
+}
+
+.yoyo123{
+
+  position:relative;
+  text-align: center;
+
+  margin: 80px auto;
+}
+
+.footri{
+  position: fixed;
+  bottom: 0;
+}
 
 .BlogChild {
   background-color: white;
@@ -16,9 +36,4 @@
 }
 
 
-.yoyo {
 
-
-    display: grid;
-    grid-template-columns: auto auto ;
-}

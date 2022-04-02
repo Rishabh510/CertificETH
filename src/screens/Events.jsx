@@ -1,6 +1,6 @@
 import React from "react";
 // Sections
-import TopNavbar from "../components/Nav/TopNavbar";
+import  TopNavbar from "../components/Nav/TopNavbar";
 import Blog from "../components/Sections/Blog";
 import Footer from "../components/Sections/Footer";
 

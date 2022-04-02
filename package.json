@@ -13,6 +13,7 @@
     "dotenv": "^16.0.0",
     "moralis": "^1.5.5",
     "nft.storage": "^6.0.2",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -22,7 +23,8 @@
     "react-scroll": "^1.8.4",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",

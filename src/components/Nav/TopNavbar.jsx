@@ -45,31 +45,19 @@ export default function TopNavbar() {
           >
             <BurgerIcon />
           </BurderWrapper>
-
+{/* 
           <UlWrapperRight className="flexNullCenter">
-            <li className="semiBold font15 pointer">
-              <Link
-                activeClass="active"
-                style={{ padding: "10px 15px", marginRight: "60px" }}
-                to="/"
-                spy={true}
-                smooth={true}
-                offset={-80}
-              >
-                Home
-              </Link>
-            </li>
+            
 
             <li className="semiBold font15 pointer flexCenter">
               <a
-                href="/events"
                 className="radius8 lightBg"
                 style={{ padding: "10px 15px" }}
               >
                 Get Started
               </a>
             </li>
-          </UlWrapperRight>
+          </UlWrapperRight> */}
         </NavInner>
       </Wrapper>
     </>
