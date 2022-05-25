@@ -15,14 +15,14 @@ import useStore from "./store";
 // Constants
 const NFT_STORAGE_API_KEY = import.meta.env.VITE_NFT_STORAGE_API_KEY;
 const TWITTER_HANDLE1 = "RaizadaRishabh";
-const TWITTER_HANDLE2 = "PriyankGupta03";
 const TWITTER_LINK1 = `https://twitter.com/${TWITTER_HANDLE1}`;
-const TWITTER_LINK2 = `https://twitter.com/${TWITTER_HANDLE2}`;
 const CONTRACT_ADDRESS = "0xAB4919E28E7e6bA06D15A3D90c32D798887B469A";
 
 const App = () => {
   const { state } = useLocation();
-  const [currentAccount, setCurrentAccount] = useState(useStore((state) => state.account));
+  const [currentAccount, setCurrentAccount] = useState(
+    useStore((state) => state.account)
+  );
   const [myName, setMyName] = useState("");
   const [OrgName, setOrgName] = useState(state.text);
   const [eventName, setEventName] = useState(state.title);
@@ -177,89 +177,94 @@ const App = () => {
 
   useEffect(() => {
     checkIfWalletIsConnected();
-  }, [useStore((state)=>state.account)]);
+  }, [useStore((state) => state.account)]);
 
   return (
-    <>    <div className="App">
-    <TopNavbar2 />
-      <div className="container">
-        <div className="header-container">
-          <p
-            className="sub-text"
-            style={{
-              fontSize: "25px",
-              fontStyle: "italic",
-              fontFamily: 'Khula',
-            }}
-          >
-            Host events/conferences and distribute participation certificates as
-            NFTs
-          </p>
-          {currentAccount === "" ? (
-            <h1>Please connect your MetaMask account</h1>
-          ) : (
-            <>
-              <Box
-                sx={{
-                  border: 1,
-                  borderColor: "grey.700",
-                  borderWidth: "2px",
-                  backgroundColor: "#F9F9F9",
-                  margin: "50px auto",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  width: "55%",
-                  justifyContent: "center",
-                  padding: "30px",
-                  alignContent: "center",
-                  borderBlockColor: "grey",
-                  borderRadius: "20px",
-                }}
-              >
-                <TextField
-                  id="outlined-basic"
-                  label="Enter Organisation Name"
-                  fullWidth
-                  variant="outlined"
-                  value={OrgName}
-                  onChange={(e) => setOrgName(e.target.value)}
-                  style={{ margin: "20px" }}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Enter Participant Name"
-                  variant="outlined"
-                  fullWidth
-                  value={myName}
-                  onChange={(e) => setMyName(e.target.value)}
-                  style={{ margin: "20px" }}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Enter Recipient Address"
-                  fullWidth
-                  variant="outlined"
-                  value={AddressName}
-                  onChange={(e) => setAddressName(e.target.value)}
-                  style={{ margin: "20px" }}
-                />
-                <Button
-                  variant="contained"
-                  onClick={askContractToMintNft}
-                  className="cta-button connect-wallet-button"
-                  size="large"
-                  style={{ margin: "20px", width: "35%", backgroundColor: "dodgerblue", }}
-
+    <>
+      {" "}
+      <div className="App">
+        <TopNavbar2 />
+        <div className="container">
+          <div className="header-container">
+            <p
+              className="sub-text"
+              style={{
+                fontSize: "25px",
+                fontStyle: "italic",
+                fontFamily: "Khula",
+              }}
+            >
+              Host events/conferences and distribute participation certificates
+              as NFTs
+            </p>
+            {currentAccount === "" ? (
+              <h1>Please connect your MetaMask account</h1>
+            ) : (
+              <>
+                <Box
+                  sx={{
+                    border: 1,
+                    borderColor: "grey.700",
+                    borderWidth: "2px",
+                    backgroundColor: "#F9F9F9",
+                    margin: "50px auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "55%",
+                    justifyContent: "center",
+                    padding: "30px",
+                    alignContent: "center",
+                    borderBlockColor: "grey",
+                    borderRadius: "20px",
+                  }}
                 >
-                  Mint NFT
-                </Button>
-              </Box>
-            </>
-          )}
-        </div>
-        <div className="footer-container">
-          <p>
+                  <TextField
+                    id="outlined-basic"
+                    label="Enter Organisation Name"
+                    fullWidth
+                    variant="outlined"
+                    value={OrgName}
+                    onChange={(e) => setOrgName(e.target.value)}
+                    style={{ margin: "20px" }}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Enter Participant Name"
+                    variant="outlined"
+                    fullWidth
+                    value={myName}
+                    onChange={(e) => setMyName(e.target.value)}
+                    style={{ margin: "20px" }}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Enter Recipient Address"
+                    fullWidth
+                    variant="outlined"
+                    value={AddressName}
+                    onChange={(e) => setAddressName(e.target.value)}
+                    style={{ margin: "20px" }}
+                  />
+                  <Button
+                    variant="contained"
+                    onClick={askContractToMintNft}
+                    className="cta-button connect-wallet-button"
+                    size="large"
+                    style={{
+                      margin: "20px",
+                      width: "35%",
+                      backgroundColor: "dodgerblue",
+                    }}
+                  >
+                    Mint NFT
+                  </Button>
+                </Box>
+              </>
+            )}
+          </div>
+          <div className="footer-container">
+            {/* <p>
             Built by: &nbsp;
             <a
               className="footer-text"
@@ -269,23 +274,12 @@ const App = () => {
             >
               {TWITTER_HANDLE1}
             </a>
-            &nbsp; & &nbsp;
-            <a
-              className="footer-text"
-              href={TWITTER_LINK2}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {TWITTER_HANDLE2}
-            </a>
-          </p>
+          </p> */}
+          </div>
         </div>
       </div>
-    </div>
-
-    <Footer />
+      <Footer />
     </>
-
   );
 };
 
